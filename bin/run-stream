@@ -1,5 +1,9 @@
 #!/bin/bash
 # runs the data streaming backend
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 cd PROJECTS/AFHBA404
 ./scripts/brotto-stream-to-flash
 
