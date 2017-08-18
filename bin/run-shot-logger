@@ -1,0 +1,21 @@
+#!/bin/bash
+
+log_nvme() {
+	nvme smart-log /dev/nvme0 | \
+	grep 'Temperature Sensor 2'|awk -F ":" '{print $2 }' | awk '{print $1}'
+}
+
+log_bufmon() {
+	~dt100/bin/bufmon | awk '{ print $2","$4","$6 }'
+}
+
+LOG=~dt100/shot.log
+
+echo > $LOG
+while  [ 1 ]; do
+logger $(date +%Y%m%d%H%M%S),$(log_bufmon),$(log_nvme)
+echo $(date +%Y%m%d%H%M%S),$(log_bufmon),$(log_nvme) >>$LOG
+sleep 5
+done
+
+

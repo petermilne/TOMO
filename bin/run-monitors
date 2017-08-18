@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mate-terminal \
+	--window-with-profile=Default --title="Sensors" \
+		-e 'watch sensors' \
+	--tab-with-profile=Default --title="NVME" \
+		-e 'sudo watch nvme smart-log /dev/nvme0' \
+	--tab-with-profile=Default --title="DF" \
+		-e "watch 'df -h | grep nvme | tr -s \  '" \
+	--tab-with-profile=Default --title="VM" \
+		-e 'watch "cat /proc/vmstat | egrep dirty\|writeback"' \
+	--tab-with-profile=Default --title="TOP" \
+		-e top \
+	--tab-with-profile=Default --title="BUFFERS" \
+		-e 'sudo watch ~dt100/bin/bufmon' &
+  
+#211  gnome-terminal -e 'watch sensors' &
+#  212  gnome-terminal -e 'watch sudo nvme smart-log /dev/nvme0' &
+#  213  gnome-terminal -e "watch 'df -h | grep nvme | tr -s \  ' &
+# https://lonesysadmin.net/2013/12/22/better-linux-disk-caching-performance-vm-dirty_ratio/
+
