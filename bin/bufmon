@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+for kvp in $(cat /proc/driver/afhba/afhba.0/Job)
+do
+	eval $kvp
+done
+
+
+
+echo rx $rx rate $rx_rate MBPS $MBPS
+
+
+
+
