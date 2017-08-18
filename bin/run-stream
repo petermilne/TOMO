@@ -1,0 +1,5 @@
+#!/bin/bash
+# runs the data streaming backend
+cd PROJECTS/AFHBA404
+./scripts/brotto-stream-to-flash
+
