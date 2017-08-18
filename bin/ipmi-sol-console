@@ -1,0 +1,6 @@
+#!/usr/bin/expect
+
+set IP [lindex $argv 0]
+spawn ipmitool -I lanplus -H $IP -U ADMIN -a sol activate
+expect "Password:" { send "ADMIN\n\r" }
+interact

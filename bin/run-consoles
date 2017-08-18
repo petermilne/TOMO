@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+ISL=/home/dt100/bin/ipmi-sol-console
+
+WWP="--window-with-profile=Default --title"
+TWP="--tab-with-profile=Default --title"
+
+mate-terminal	$WWP Bolby -e "$ISL 10.12.196.127" \
+		$TWP Betso -e "$ISL 10.12.196.134" \
+		$TWP Ladna -e "$ISL 10.12.196.136" \
+		$TWP Vindo -e "$ISL 10.12.196.119"
+
+
