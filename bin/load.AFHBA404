@@ -4,4 +4,11 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-cd /home/dt100/PROJECTS/AFHBA404;./scripts/brotto.loadNIRQ $*
+grep -q afhba /proc/modules
+if [ $? -eq 0 ]; then
+	echo afhba loaded already
+	exit
+fi
+cd /home/dt100/PROJECTS/AFHBA404;
+exec ./scripts/brotto.loadNIRQ $*
+
