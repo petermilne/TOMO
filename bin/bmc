@@ -1,0 +1,16 @@
+#!/bin/bash
+# return BMC ip-address for HOST
+
+HN=( $HOSTS )
+IP=( $HIPMI )
+
+shopt -s nocasematch
+
+for h in $*; do
+	for i in $(seq 0 $((${#IP[*]} - 1)) ); do
+		if  [[ "$h" = "${HN[$i]}" ]]; then
+			echo ${IP[$i]}
+			exit 0
+		fi
+	done
+done
