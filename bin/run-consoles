@@ -2,15 +2,14 @@
 
 
 ISL=/home/dt100/bin/ipmi-sol-console
-
 WWP="--window-with-profile=Default --title"
 TWP="--tab-with-profile=Default --title"
 
 HN=( $HOSTS )
 IP=( $HIPMI )
-mate-terminal	$WWP ${HN[0]} -e "$ISL ${HIPMI[0]}" \
-		$TWP ${HN[1]} -e "$ISL ${HIPMI[1]}" \
-		$TWP ${HN[2]} -e "$ISL ${HIPMI[2]}" \
-		$TWP ${HN[3]} -e "$ISL ${HIPMI[3]}"
+mate-terminal	$WWP ${HN[0]} -e "$ISL ${IP[0]}" \
+		$TWP ${HN[1]} -e "$ISL ${IP[1]}" \
+		$TWP ${HN[2]} -e "$ISL ${IP[2]}" \
+		$TWP ${HN[3]} -e "$ISL ${IP[3]}"
 
 
