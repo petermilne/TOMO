@@ -1,0 +1,20 @@
+#!/bin/bash
+
+WWP=--window-with-profile=Default
+TWP=--tab-with-profile=Default
+XWP=$WWP
+
+TF=$(mktemp /tmp/run-tomo-all.XXXXXXXX)
+
+echo -n 'mate-terminal ' > $TF
+
+for h in $HOSTS; do
+	echo ' \' >>$TF
+	echo -n $XWP --title=\"$h\" -e \'$*\' >> $TF
+	XWP=$TWP
+done
+
+echo >>$TF
+chmod a+rx $TF
+ls -l $TF
+
