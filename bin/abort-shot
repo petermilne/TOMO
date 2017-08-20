@@ -1,4 +1,3 @@
-[dt100@bolby TOMO]$ cat bin/run-shot
 #!/bin/sh
 export ACQ2106_UUT=$(cat /dev/rtm-t.0.ctrl/acq_ident)
 echo connected to $ACQ
