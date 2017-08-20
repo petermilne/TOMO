@@ -10,7 +10,7 @@ echo -n 'mate-terminal ' > $TF
 
 for h in $HOSTS; do
 	echo ' \' >>$TF
-	echo -n $XWP --title=\"$h\" -e \"ssh dt100@$h \'$*\'\" >> $TF
+	echo -n $XWP --title=\"$h\" -e \"ssh -t dt100@$h \'$*\'\" >> $TF
 	XWP=$TWP
 done
 
