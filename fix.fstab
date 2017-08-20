@@ -4,9 +4,15 @@
 TMP="$(cat fstab.template)"
 ACT="$(grep nvme /etc/fstab)"
 
-if [ $? -eq 0 ] && [ "x$TMP" = "x$ACT" ]; then
-	echo /etc/fstab matches fstab.template: no action required
-	exit 0
+if [ $? -eq 0 ]; then
+	if [ "x$TMP" = "x$ACT" ]; then
+		echo /etc/fstab matches fstab.template: no action required
+		exit 0
+	else
+		echo updating /etc/fstab
+		echo -$ACT
+		echo +$TMP
+	fi
 fi
 
 sed -i.bak -e '/nvme0/d' /etc/fstab

@@ -1,2 +1,2 @@
-/dev/nvme0n1		/data			xfs	defaults	0 0
+/dev/nvme0n1		/data			xfs	defaults,noatime	0 0
 
