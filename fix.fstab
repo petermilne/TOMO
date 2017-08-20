@@ -1,0 +1,15 @@
+#!/bin/bash
+# make sure nvme mount line in fstab matches template
+
+TMP="$(cat fstab.template)"
+ACT="$(grep nvme /etc/fstab)"
+
+if [ $? -eq 0 ] && [ "x$TMP" = "x$ACT" ]; then
+	echo /etc/fstab matches fstab.template: no action required
+	exit 0
+fi
+
+sed -i.bak -e '/nvme0/d' /etc/fstab
+cat fstab.template >> /etc/fstab
+echo /etc/fstab updated
+exit 0 
