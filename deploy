@@ -1,0 +1,5 @@
+#!/bin/bash
+cp bin/* ~/bin
+cp dot.bashrc ~/.bashrc
+sudo ./fix.fstab
+
