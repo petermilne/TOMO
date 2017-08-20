@@ -1,0 +1,8 @@
+[dt100@bolby TOMO]$ cat bin/run-shot
+#!/bin/sh
+export ACQ2106_UUT=$(cat /dev/rtm-t.0.ctrl/acq_ident)
+echo connected to $ACQ
+cd PROJECTS/ACQ400/HAPI/acq400_hapi_tests
+# if UUT is specified on the command line, use it, else use ACQ2106_UUT
+./acq400_abort.py $ACQ2106_UUT
+
