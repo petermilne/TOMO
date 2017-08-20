@@ -1,0 +1,31 @@
+#!/bin/bash
+# ipmitool -I lanplus -H 10.12.196.119 -U ADMIN -P ADMIN chassis power on
+
+CMD=$1
+shift
+
+case $CMD in
+on)
+	echo switching on;;
+off)
+	echo 'you asked to swich off .. are you sure?'
+	select yn in "Yes" "No"; do
+		case $yn in
+	        Yes ) break;;
+	        No ) exit;;
+	     	esac
+	done;;
+*)
+	echo 'set-ipmi-chassis-power on|off HOST [HOST..]'
+	exit;;
+esac
+
+for h in $*; do
+	ip=$(bmc $h)
+	if [ "x$ip" = "x" ]; then
+		echo bmc $h failed
+		exit 1
+	fi
+	ipmitool -I lanplus -H $ip -U ADMIN -P ADMIN chassis power $CMD
+done
+
