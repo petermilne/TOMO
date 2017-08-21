@@ -1,4 +1,4 @@
 #!/bin/sh
-SIM=${1:-1,2,3,4,5,6}
+[ "x$SIM" != "x" ] || SIM=${1:-1,2,3,4,5,6}
 /home/dt100/bin/multisitecheckramp --cps 8 --sim=${SIM}
 
