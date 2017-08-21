@@ -1,0 +1,12 @@
+#!/bin/bash
+# runs the data streaming backend
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+echo $2 > $1
+echo "$1 set $(cat $1)"
+
+
+
