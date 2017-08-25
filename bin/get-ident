@@ -1,3 +1,4 @@
 #!/bin/bash
-echo "$(hostname) $(cat /dev/rtm-t.0.ctrl/acq_ident)"
+DN=${1:-0}
+echo "$(hostname) $(cat /dev/rtm-t.$DN.ctrl/acq_ident)"
 
