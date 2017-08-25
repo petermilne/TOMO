@@ -1,9 +1,10 @@
 #!/bin/bash
 # runs the data streaming backend
+# arg: DN default 0, could be 1 for second link
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
 cd PROJECTS/AFHBA404
-./scripts/brotto-stream-to-flash
+./scripts/brotto-stream-to-flash ${1:-0}
 
