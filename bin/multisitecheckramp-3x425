@@ -1,0 +1,5 @@
+#!/bin/sh
+[ "$EUID" -eq 0 ] && source /home/dt100/.bashrc
+[ "x$SIM" != "x" ] || SIM=${1:-1,2,3}
+/home/dt100/bin/multisitecheckramp --cps 8 --sites=1,2,3 --sim=${SIM}
+
