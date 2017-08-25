@@ -1,4 +1,4 @@
 #!/bin/bash
 DN=${1:-0}
-find /data/ACQ400DATA/$DN/ -name 0.?? | multisitecheckramp-3x425
+find /data/ACQ400DATA/${DN}/ -name ${DN}.?? | multisitecheckramp-3x425
 
