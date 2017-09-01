@@ -6,7 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 export PATH=$PATH:$HOME/bin
-export PYTHONPATH=$HOME/PROJECTS/ACQ400/HAPI/acq400_hapi_tests/acq400_hapi
+export PYTHONPATH=$HOME/PROJECTS/ACQ400/HAPI/acq400_hapi_tests
 
 export HOSTS="Bolby Betso Ladna Vindo"
 export UUTS="acq2106_070 acq2106_071 acq2106_072 acq2106_073"
