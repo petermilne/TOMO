@@ -1,0 +1,6 @@
+#!/bin/sh
+cd $HOME/PROJECTS/ACQ400/HAPI/acq400_hapi_tests
+./acq2106_set_sync_role.py --master_clk=fp,2000000,1000000 \
+	--master_trg=fp,falling --trace=1 $UUTS
+
+
