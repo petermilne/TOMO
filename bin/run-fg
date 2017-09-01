@@ -1,7 +1,7 @@
 #!/bin/bash
 FG=${FG:-acq1001_291}
 GPGSTL=${GPGSTL:-STL/d2-0-2-5-10-20-50-100.stl}
-AWGRAW=${$AWGRAW:-AWG/4interleave}
+AWGRAW=${AWGRAW:-AWG/4interleave}
 
 (cd ~/PROJECTS/ACQ400/HAPI/acq400_hapi_tests;
  ./run_gpg.py --disable 1 $FG
