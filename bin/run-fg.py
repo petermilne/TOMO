@@ -1,4 +1,4 @@
-#!/usr/bin/python -i
+#!/usr/bin/python
   
 import acq400_hapi
 import os
@@ -11,7 +11,7 @@ parser.add_argument('--awg', help="awg raw data file")
 parser.add_argument('uut', nargs='+', help="uut")
 
 args = parser.parse_args()
-uut = acq400_hapi.Acq400(args.uut)
+uut = acq400_hapi.Acq400(args.uut[0])
 
 uut.load_awg(args.awg, autorearm=True)
 uut.s1.trg = '1,1,1'
