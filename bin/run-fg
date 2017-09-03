@@ -8,7 +8,9 @@ AWGRAW=${AWGRAW:-AWG/4interleave}
  ./run_gpg.py --stl $GPGSTL --clk=d0 --trg=fp $FG
 )
 
-./bin/run-fg.py --awg=$AWGRAW $FG
+nc $FG 54202 < $AWGRAW
+./bin/run-fg.py --awg=none $FG
+#./bin/run-fg.py --awg=$AWGRAW $FG
 
 
 
