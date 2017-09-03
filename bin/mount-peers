@@ -1,0 +1,16 @@
+#!/bin/bash
+
+MODE=${1:-mount}
+
+if [ "$MODE" = "mount" ]; then
+	for h in $HOSTS; do
+		mkdir -p data/$h
+		sudo mount $h:/data data/$h
+	done
+else
+	for h in $HOSTS; do
+		sudo umount data/$h
+	done
+fi
+
+
