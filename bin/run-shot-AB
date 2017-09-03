@@ -1,0 +1,6 @@
+#!/bin/sh
+SECS=${1:-1800}
+./bin/run-shot  --trg=int,rising --commsA=1,2,3 --commsB=4,5,6 --secs $SECS 
+
+
+
