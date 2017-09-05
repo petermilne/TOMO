@@ -18,7 +18,7 @@ uut = acq400_hapi.Acq400(args.uut[0])
 
 uut.s1.trg = '1,1,1'                # AWG TRG d1
 uut.s1.clk = '1,0,0'                # AWG CLK d0
-uut.s1.CLKDIV = 2                   # 2MHz/2 = 1MSPS
+uut.s1.CLKDIV = '2'                 # 2MHz/2 = 1MSPS
 uut.s0.SIG_EVENT_SRC_1 = 'GPG'      # front panel output for monitor.
 uut.s0.SIG_SRC_TRG_1 = 'GPG1'       # AWG trigger is GPG1 (internal)
 uut.s0.SIG_SRC_CLK_0 = 'HDMI'       # CLK is SLAVED
