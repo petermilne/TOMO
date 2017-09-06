@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+WWP="--window-with-profile=StickAround --title"
+TWP="--tab-with-profile=StickAround --title"
+
+HN=( $HOSTS )
+UN=( $UUTS )
+mate-terminal	$WWP "tty_${UN[0]}" -e "ssh -t dt100@${HN[0]} tty_${UN[0]}" \
+		$TWP "tty_${UN[1]}" -e "ssh -t dt100@${HN[1]} tty_${UN[1]}" \
+		$TWP "tty_${UN[2]}" -e "ssh -t dt100@${HN[2]} tty_${UN[2]}" \
+		$TWP "tty_${UN[3]}" -e "ssh -t dt100@${HN[3]} tty_${UN[3]}" 
+
+
