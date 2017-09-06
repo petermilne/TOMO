@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for h in $HOSTS; do ssh -X dt100@$h $* & done
+
+
