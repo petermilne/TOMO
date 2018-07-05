@@ -5,6 +5,10 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
-cd PROJECTS/AFHBA404
+cd /home/dt100/PROJECTS/AFHBA404
+if [ "x$2" != "x" ]; then 
+    export NBUFS=$2
+    echo "setting NBUFS $NBUFS"
+fi
 ./scripts/brotto-stream-to-flash ${1:-0}
 
