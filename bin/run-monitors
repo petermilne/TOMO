@@ -1,8 +1,11 @@
 #!/bin/bash
+PORT=${1:-0}
 
 mate-terminal \
 	--window-with-profile=Default --title="Sensors" \
 		-e 'watch sensors' \
+        --tab-with-profile=Default --title="AFHBA404" \
+                -e 'sudo watch cat /dev/rtm-t.0.ctrl/host_temp' \
 	--tab-with-profile=Default --title="NVME" \
 		-e 'sudo watch nvme smart-log /dev/nvme0' \
 	--tab-with-profile=Default --title="DF" \
@@ -12,7 +15,7 @@ mate-terminal \
 	--tab-with-profile=Default --title="TOP" \
 		-e top \
 	--tab-with-profile=Default --title="BUFFERS" \
-		-e 'sudo watch ~dt100/bin/bufmon' &
+		-e "sudo watch ~dt100/bin/bufmon $PORT" &
   
 #211  gnome-terminal -e 'watch sensors' &
 #  212  gnome-terminal -e 'watch sudo nvme smart-log /dev/nvme0' &

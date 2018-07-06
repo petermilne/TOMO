@@ -9,6 +9,6 @@ while [ "x$1" != "x" ]; do
 	export $1
 	shift	
 done
-./scripts/brotto-stream-ramdisk
+./scripts/brotto-stream-ramdisk $1
 
 

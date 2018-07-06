@@ -1,7 +1,7 @@
 #!/bin/bash
 
-
-for kvp in $(cat /proc/driver/afhba/afhba.0/Job)
+LPORT=${1:-0}
+for kvp in $(cat /proc/driver/afhba/afhba.${LPORT}/Job)
 do
 	eval $kvp
 done
