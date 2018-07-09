@@ -15,7 +15,10 @@ mate-terminal \
 	--tab-with-profile=Default --title="TOP" \
 		-e top \
 	--tab-with-profile=Default --title="BUFFERS" \
-		-e "sudo watch ~dt100/bin/bufmon $PORT" &
+		-e "sudo watch ~dt100/bin/bufmon $PORT" \
+        --tab-with-profile=Default --title="CATCHUP" \
+                -e "watch ~dt100/bin/monitor-catchup" \
+	&
   
 #211  gnome-terminal -e 'watch sensors' &
 #  212  gnome-terminal -e 'watch sudo nvme smart-log /dev/nvme0' &
